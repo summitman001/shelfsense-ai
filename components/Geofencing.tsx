@@ -29,10 +29,10 @@ export default function Geofencing() {
   }, [inView]);
 
   return (
-    <section id="geofencing" className="py-32 relative overflow-hidden" ref={ref}>
+    <section id="geofencing" className="py-32 relative overflow-hidden bg-[#f0f9ff]" ref={ref}>
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse at 20% 50%, #00d4ff08 0%, transparent 60%)" }}
+        style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(6,182,212,0.06) 0%, transparent 60%)" }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -42,14 +42,14 @@ export default function Geofencing() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <p className="text-xs text-[#00d4ff] font-mono uppercase tracking-widest mb-4">Geofencing Otomasyonu</p>
-          <h2 className="text-4xl sm:text-5xl font-black mb-6">
+          <p className="text-xs text-[#06b6d4] font-mono uppercase tracking-widest mb-4 font-semibold">Geofencing Otomasyonu</p>
+          <h2 className="text-4xl sm:text-5xl font-black mb-6 text-[#0c172a]">
             Müşteri mağazaya yaklaşsın,{" "}
-            <span className="text-[#00d4ff]" style={{ textShadow: "0 0 20px #00d4ff60" }}>
+            <span className="text-[#06b6d4]">
               sistem konuşsun.
             </span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
             500 metrelik geofence alanı içine giren müşteriye, o anki stok durumuna
             göre kişiselleştirilmiş anlık bildirim gönderiliyor.
           </p>
@@ -66,34 +66,34 @@ export default function Geofencing() {
               {pulseRings.map((ring, i) => (
                 <motion.div
                   key={i}
-                  className="absolute rounded-full border border-[#00d4ff]/20"
+                  className="absolute rounded-full border border-[#06b6d4]/20"
                   style={{ width: ring.size, height: ring.size }}
                   animate={{ scale: [0.8, 1.1, 0.8], opacity: [0.4, 0.1, 0.4] }}
                   transition={{ duration: ring.duration, delay: ring.delay, repeat: Infinity }}
                 />
               ))}
 
-              <div className="relative z-10 glass rounded-3xl border border-[#00d4ff]/30 shadow-[0_0_40px_#00d4ff20] w-52">
-                <div className="bg-black/40 rounded-t-3xl px-4 py-3 flex items-center justify-between border-b border-white/5">
+              <div className="relative z-10 bg-white rounded-3xl border border-sky-100 shadow-xl shadow-sky-100 w-52">
+                <div className="bg-slate-50 rounded-t-3xl px-4 py-3 flex items-center justify-between border-b border-slate-100">
                   <div className="flex gap-1">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                    <div className="w-6 h-1.5 rounded-full bg-white/20" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-slate-200" />
+                    <div className="w-6 h-1.5 rounded-full bg-slate-200" />
                   </div>
-                  <Wifi size={12} className="text-[#00d4ff]" />
+                  <Wifi size={12} className="text-[#06b6d4]" />
                 </div>
 
                 <div className="p-4 space-y-2">
                   {notifications.map((n, i) => (
                     <motion.div
                       key={i}
-                      animate={{ opacity: i === activeNotif ? 1 : 0.3, scale: i === activeNotif ? 1 : 0.97 }}
+                      animate={{ opacity: i === activeNotif ? 1 : 0.35, scale: i === activeNotif ? 1 : 0.97 }}
                       transition={{ duration: 0.3 }}
-                      className="rounded-xl p-3 bg-white/5 border border-white/5"
+                      className="rounded-xl p-3 border border-sky-50 bg-sky-50"
                     >
                       <div className="flex items-start gap-2">
                         <span className="text-lg leading-none">{n.emoji}</span>
                         <div>
-                          <p className="text-[11px] font-semibold text-white leading-none mb-1">{n.title}</p>
+                          <p className="text-[11px] font-semibold text-[#0c172a] leading-none mb-1">{n.title}</p>
                           <p className="text-[10px] text-slate-400 leading-relaxed">{n.msg}</p>
                         </div>
                       </div>
@@ -102,17 +102,16 @@ export default function Geofencing() {
                 </div>
 
                 <div className="px-4 pb-4">
-                  <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
-                    <div className="h-full w-1/3 rounded-full bg-[#00d4ff]" style={{ boxShadow: "0 0 8px #00d4ff" }} />
+                  <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                    <div className="h-full w-1/3 rounded-full bg-[#06b6d4]" style={{ boxShadow: "0 0 8px rgba(6,182,212,0.5)" }} />
                   </div>
                 </div>
               </div>
 
               <div
-                className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-[#00d4ff]/20 border border-[#00d4ff]/50 flex items-center justify-center"
-                style={{ boxShadow: "0 0 20px #00d4ff40" }}
+                className="absolute bottom-4 right-4 w-10 h-10 rounded-full bg-[#06b6d4]/10 border border-[#06b6d4]/30 flex items-center justify-center shadow-lg"
               >
-                <MapPin size={18} className="text-[#00d4ff]" />
+                <MapPin size={18} className="text-[#06b6d4]" />
               </div>
             </div>
           </motion.div>
@@ -126,19 +125,19 @@ export default function Geofencing() {
             {[
               {
                 icon: MapPin,
-                color: "#00d4ff",
+                color: "#06b6d4",
                 title: "500m Geofence Alanı",
                 desc: "Mağaza etrafında dinamik bir coğrafi sınır tanımlanır. Müşteri bu alana girdiği anda sistem devreye girer.",
               },
               {
                 icon: Bell,
-                color: "#39ff14",
+                color: "#0ea5e9",
                 title: "Stok-Bağlı Bildirim",
                 desc: "Gönderilen bildirim; o anki stok durumu, kişinin alışveriş geçmişi ve davranışsal veriye göre özelleştirilir.",
               },
               {
                 icon: Smartphone,
-                color: "#a78bfa",
+                color: "#6366f1",
                 title: "Çok Kanal Desteği",
                 desc: "Push bildirimi, SMS ve mağaza uygulaması üzerinden eş zamanlı iletişim. Müşteriyi nerede olursa olsun yakala.",
               },
@@ -152,12 +151,12 @@ export default function Geofencing() {
               >
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: `${item.color}15`, border: `1px solid ${item.color}30` }}
+                  style={{ background: `${item.color}12`, border: `1px solid ${item.color}25` }}
                 >
                   <item.icon size={20} style={{ color: item.color }} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white mb-1">{item.title}</h3>
+                  <h3 className="font-semibold text-[#0c172a] mb-1">{item.title}</h3>
                   <p className="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>

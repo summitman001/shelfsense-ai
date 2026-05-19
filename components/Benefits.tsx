@@ -12,7 +12,7 @@ const benefits = [
     desc: "Son kullanma tarihi yaklaşan ürünler otomatik tespit edilir, kampanya başlatılır.",
     stat: "-%61",
     statLabel: "israf",
-    color: "#39ff14",
+    color: "#0ea5e9",
   },
   {
     icon: TrendingUp,
@@ -20,7 +20,7 @@ const benefits = [
     desc: "Doğru kişiye, doğru anda, doğru teklifle ulaşmak dönüşümü katlar.",
     stat: "+%34",
     statLabel: "satış",
-    color: "#00d4ff",
+    color: "#06b6d4",
   },
   {
     icon: Bot,
@@ -28,7 +28,7 @@ const benefits = [
     desc: "İnsan müdahalesine gerek kalmadan çalışan, kendi kararlarını üretebilen sistem.",
     stat: "7/24",
     statLabel: "aktif",
-    color: "#a78bfa",
+    color: "#6366f1",
   },
   {
     icon: Eye,
@@ -36,7 +36,7 @@ const benefits = [
     desc: "Mağazanızın her rafını, her ürününü saniye başı takip edin.",
     stat: "<1sn",
     statLabel: "gecikme",
-    color: "#f59e0b",
+    color: "#0891b2",
   },
   {
     icon: Clock,
@@ -44,7 +44,7 @@ const benefits = [
     desc: "Stok kritik seviyeye düşünce sistem otomatik sipariş sürecini başlatır.",
     stat: "4sn",
     statLabel: "tepki",
-    color: "#ec4899",
+    color: "#0369a1",
   },
   {
     icon: BarChart3,
@@ -52,7 +52,7 @@ const benefits = [
     desc: "Raf performansı, satış tahminleri, müşteri davranışları — tek panelde.",
     stat: "∞",
     statLabel: "veri",
-    color: "#14b8a6",
+    color: "#0284c7",
   },
 ];
 
@@ -61,11 +61,11 @@ export default function Benefits() {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="benefits" className="py-32 relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
+    <section id="benefits" className="py-32 relative overflow-hidden bg-white" ref={ref}>
+      <div className="absolute inset-0 bg-grid opacity-30 pointer-events-none" />
       <div
         className="absolute top-0 left-0 right-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent, #39ff1440, transparent)" }}
+        style={{ background: "linear-gradient(90deg, transparent, rgba(14,165,233,0.3), transparent)" }}
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -75,11 +75,11 @@ export default function Benefits() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <p className="text-xs text-[#39ff14] font-mono uppercase tracking-widest mb-4">Faydalar</p>
-          <h2 className="text-4xl sm:text-5xl font-black mb-6">
+          <p className="text-xs text-[#0ea5e9] font-mono uppercase tracking-widest mb-4 font-semibold">Faydalar</p>
+          <h2 className="text-4xl sm:text-5xl font-black mb-6 text-[#0c172a]">
             Neden <span className="gradient-text">ShelfSense AI?</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-500 text-lg max-w-2xl mx-auto">
             Yalnızca bir analiz aracı değil — mağazanızı baştan aşağı dönüştüren
             bir otonom zekâ platformu.
           </p>
@@ -92,29 +92,28 @@ export default function Benefits() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              className="glass rounded-2xl p-6 relative overflow-hidden group hover:border-white/10 transition-all duration-300 glow-card"
-              style={{ borderColor: `${b.color}15` }}
+              className="bg-white rounded-2xl p-6 relative overflow-hidden group hover:shadow-lg hover:border-sky-100 transition-all duration-300 border border-slate-100"
             >
               <div className="absolute top-0 right-0 w-20 h-20 rounded-full opacity-5 pointer-events-none" style={{ background: b.color, transform: "translate(30%, -30%)" }} />
 
               <div className="flex items-start justify-between mb-5">
                 <div
                   className="w-11 h-11 rounded-xl flex items-center justify-center"
-                  style={{ background: `${b.color}15`, border: `1px solid ${b.color}30` }}
+                  style={{ background: `${b.color}12`, border: `1px solid ${b.color}25` }}
                 >
                   <b.icon size={20} style={{ color: b.color }} />
                 </div>
                 <div className="text-right">
                   <p className="text-2xl font-black" style={{ color: b.color }}>{b.stat}</p>
-                  <p className="text-xs text-slate-500">{b.statLabel}</p>
+                  <p className="text-xs text-slate-400">{b.statLabel}</p>
                 </div>
               </div>
 
-              <h3 className="font-bold text-white mb-2">{b.title}</h3>
+              <h3 className="font-bold text-[#0c172a] mb-2">{b.title}</h3>
               <p className="text-sm text-slate-400 leading-relaxed">{b.desc}</p>
 
               <div
-                className="absolute bottom-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                className="absolute bottom-0 left-0 right-0 h-0.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-b-2xl"
                 style={{ background: `linear-gradient(90deg, transparent, ${b.color}, transparent)` }}
               />
             </motion.div>
