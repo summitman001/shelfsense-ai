@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ShelfSense AI
 
-## Getting Started
+**AI destekli gerçek zamanlı perakende zekâ sistemi.**
 
-First, run the development server:
+> A101 Girişim 101 Başvuru Projesi — 2026
+
+---
+
+## Proje Hakkında
+
+ShelfSense AI, perakende mağazalarının en büyük sorunlarını — aşırı stok, gıda israfı, verimsiz kampanyalar ve boş raflar — gerçek zamanlı yapay zekâ ile çözen bir otonom perakende platformudur.
+
+Kamera görüntülerini milisaniye gecikmesiyle analiz ederek rafların dijital ikizini oluşturur. Bu veriye dayanarak kişisel kampanyalar üretir, geofencing ile müşterilere anlık bildirim gönderir ve stok hareketlerini tahmin eder.
+
+---
+
+## Özellikler
+
+- **Gerçek Zamanlı Raf Analizi** — Kamera → AI Tespiti → Dijital İkiz akışı
+- **Dinamik Fiyatlandırma** — Stok durumuna göre otomatik fiyat optimizasyonu
+- **Sepet Zekâsı** — Alışveriş geçmişine göre kişisel kampanya üretimi
+- **Geofencing Otomasyonu** — 500m yarıçaplı akıllı bildirim sistemi
+- **Canlı Dashboard** — Raf doluluk monitörü, AI tespit logları, sistem uyarıları
+- **Otonom Sipariş** *(Yakında)* — Tedarikçi entegrasyonu ile otomatik stok yenileme
+
+---
+
+## Tech Stack
+
+| Katman | Teknoloji |
+|--------|-----------|
+| Framework | Next.js 16 (App Router) |
+| Dil | TypeScript |
+| Stil | Tailwind CSS v4 |
+| Animasyon | Framer Motion |
+| İkonlar | Lucide React |
+| Deploy | Vercel |
+
+---
+
+## Kurulum
 
 ```bash
+# Repoyu klonla
+git clone https://github.com/summitman001/shelfsense-ai.git
+cd shelfsense-ai
+
+# Bağımlılıkları yükle
+npm install
+
+# Geliştirme sunucusunu başlat
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Tarayıcıda aç: [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Proje Yapısı
 
-## Learn More
+```
+shelfsense-ai/
+├── app/
+│   ├── layout.tsx          # Root layout, meta bilgileri
+│   ├── page.tsx            # Ana sayfa
+│   └── globals.css         # Global stiller, animasyonlar
+├── components/
+│   ├── Navbar.tsx           # Sticky navbar
+│   ├── Hero.tsx             # Hero section + metrik kartlar
+│   ├── DashboardMockup.tsx  # Canlı animasyonlu dashboard UI
+│   ├── Ticker.tsx           # Canlı durum şeridi
+│   ├── Problem.tsx          # Problem section
+│   ├── CoreSystem.tsx       # Kamera→AI→Dijital İkiz akışı
+│   ├── Pricing.tsx          # Dinamik fiyatlandırma & sepet zekâsı
+│   ├── Geofencing.tsx       # Geofencing & telefon mockup
+│   ├── Benefits.tsx         # Faydalar
+│   ├── Vision.tsx           # Vizyon & roadmap
+│   ├── CTA.tsx              # Demo talep formu
+│   └── Footer.tsx           # Footer
+└── public/
+    └── a101logo.png         # A101 Girişim 101 logosu
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Sayfa Akışı
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+Hero  →  Problem  →  Temel Sistem  →  Dinamik Fiyatlandırma
+→  Geofencing  →  Faydalar  →  Vizyon  →  Demo CTA
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Tasarım Sistemi
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Tema:** Dark, `#030712` arka plan
+- **Accent:** Neon yeşil `#39ff14`
+- **İkincil:** Cyan `#00d4ff`, Mor `#a78bfa`
+- **Efektler:** Glassmorphism, neon glow, scan-line animasyonu
+- **His:** Apple Keynote × Futuristic AI Startup × YC Demo Day
+
+---
+
+## Deploy
+
+Vercel üzerinde otomatik CI/CD ile yayında. `main` branch'e her push otomatik deploy tetikler.
+
+```bash
+# Değişiklikleri yolla
+git add .
+git commit -m "feat: ..."
+git push origin main
+```
+
+---
+
+## Lisans
+
+Bu proje A101 Girişim 101 başvurusu kapsamında geliştirilmiştir.
